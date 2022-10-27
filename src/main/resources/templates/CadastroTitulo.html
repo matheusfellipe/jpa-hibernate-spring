@@ -68,9 +68,7 @@ xmlns:th="http://www.thymeleaf.org">
 				</label>
 				<div class="col-sm-2 ">
 					<select class="form-control" id="status" name="status">
-						<option th:each="status : ${todosStatusTitulo}"
-						th:value="${status}" th:text="${status.descricao}"
-						></option>
+						<option th:each="status : ${todosStatusTitulo}" th:value="${status}" th:text="${status.descricao}"></option>
 				
 					</select>
 				</div>
