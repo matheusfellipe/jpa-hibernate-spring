@@ -40,4 +40,9 @@ public class TituloController {
 		mv.addObject("mensagem", "Foi salvo sucesso");
 		return mv;
 	}
+	
+	@RequestMapping
+	public String pesquisar() {
+		return "PesquisarTitulos";
+	}
 }
