@@ -42,11 +42,15 @@
 					<tr scope="row" th:each="titulo : ${titulos}" >
 					<td class="text-center" th:text="${titulo.codigo}"></td>
 						<td th:text="${titulo.descricao}"></td>
-						<td class="text-center" th:text="${titulo.dataVencimento}"></td>
-						<td class="text-right" th:text="${titulo.valor}"></td>
-						<td class="text-center" th:text="${titulo.status}"></td>
+						<td class="text-center" th:text="${{titulo.dataVencimento}}"></td>
+						<td class="text-right" th:text="${{titulo.valor}}"></td>
+						
+						<td class="text-center">
+						<span class="badge" th:text="${titulo.status.descricao}"
+						th:classappend="${titulo.pendente ? 'badge-danger' : 'badge-success'}"></span>
+						</td>
 						<td></td>
-						<td colspan="6">Nenhum registro encontrado.</td>
+						<td colspan="6" th:if="${#lists.isEmpty(titulos)}">Nenhum registro encontrado.</td>
 					</tr>
 				</tbody>
 			</table>

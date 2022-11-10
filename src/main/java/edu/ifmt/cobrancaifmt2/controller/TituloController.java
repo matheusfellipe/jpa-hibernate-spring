@@ -36,7 +36,11 @@ public class TituloController {
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView salvar(Titulo titulo) {
 		titulos.save(titulo);
-		ModelAndView mv = new ModelAndView("CadastroTitulo");
+		List<Titulo> todosTitulos = titulos.findAll();
+		ModelAndView mv = new ModelAndView("PesquisaTitulos");
+		mv.addObject("titulos",todosTitulos);
+		
+		
 		mv.addObject("mensagem", "Foi salvo sucesso");
 		return mv;
 	}
